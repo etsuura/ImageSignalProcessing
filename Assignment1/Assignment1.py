@@ -14,7 +14,7 @@ def resize(image, scale):
 def grayscale_formula(filename):
     current_path = os.getcwd()
     infile_path = os.path.join(current_path, filename + ".jpg")
-    outfile_path = os.path.join(current_path, filename + "_gray" + "_opencv.jpg")
+    outfile_path = os.path.join(current_path, "image", filename + "_gray" + "_formula.jpg")
 
     img_bgr = cv2.imread(infile_path)
 
@@ -27,7 +27,7 @@ def grayscale_formula(filename):
 def grayscale_opencv(filename):
     current_path = os.getcwd()
     infile_path = os.path.join(current_path, filename + ".jpg")
-    outfile_path = os.path.join(current_path, filename + "_gray" + "_formula.jpg")
+    outfile_path = os.path.join(current_path, "image", filename + "_gray" + "_opencv.jpg")
 
     img_bgr = cv2.imread(infile_path)
 
@@ -38,8 +38,8 @@ def grayscale_opencv(filename):
 
 def bit_plane(filename, bit):
     current_path = os.getcwd()
-    infile_path = os.path.join(current_path, filename + "_gray_opencv.jpg")
-    outfile_path = os.path.join(current_path, filename + "_gray_bit_plane_" + str(bit) + ".jpg")
+    infile_path = os.path.join(current_path, "image", filename + "_gray_opencv.jpg")
+    outfile_path = os.path.join(current_path, "image", filename + "_gray_bit_plane_" + str(bit) + ".jpg")
 
     img_bgr = cv2.imread(infile_path)
     b, g, r = cv2.split(img_bgr)
