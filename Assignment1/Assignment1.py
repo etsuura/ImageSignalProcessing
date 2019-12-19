@@ -4,8 +4,8 @@ import numpy as np
 import cv2
 
 def resize(image, scale):
-    orgWidth, orgHeight = image.shape[:2]
-    size = (int(orgHeight / scale), int(orgWidth / scale))
+    orgHeight, orgWidth  = image.shape[:2]
+    size = (int(orgWidth / scale), int(orgHeight / scale))
 
     reduced_img = cv2.resize(image, size)
 
