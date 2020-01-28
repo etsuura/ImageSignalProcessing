@@ -21,15 +21,14 @@ def main():
     filter_matrix = np.zeros(size)
     h, w = img_gray.shape
     center = np.array([(h-1)/2, (w-1)/2])
-    R = 30
+    R = 1
     for i in range(0, w):
         for j in range(0, h):
             if (i - center[1]) * (i - center[1]) + (j - center[0]) * (j - center[0]) < R * R:
-                filter_matrix[j][i] = 1
+                filter_matrix[j][i] = 1/(2*math.pi*R**2)
 
-    # filter_matrix = np.fft.fftshift(filter_matrix)
-    # filter_matrix = np.fft.fft2(filter_matrix)
-    # cv2.imwrite("./tokyoskytree_FFT.jpg", filter_matrix.real)
+    filter_matrix = np.fft.fftshift(filter_matrix)
+    filter_matrix = np.fft.fft2(filter_matrix)
 
     fout = np.zeros(size, dtype=np.complex)
     fout = fimg * filter_matrix
